@@ -1,0 +1,271 @@
+.h {
+  --h-indents: 25px;
+  --h-arrow-link-svg-w: 119px;
+  --h-arrow-link-svg-h: 88px;
+  --h-arrow-link-small-svg-w: 55px;
+  --h-arrow-link-small-svg-h: 35px;
+  --main-color: #FFFFFF;
+  --second-color: #1D2C69;
+  /* -- -- -- -- -- -- -- */
+  color: var(--main-color);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--second-color);
+  font-family: Gotham, sans-serif;
+  font-weight: 300;
+}
+
+.h * {
+  color: inherit;
+}
+
+/* ------------------------------------------ */
+
+.h-fake-header {
+  height: calc(var(--header-height));
+  width: 100%;
+}
+
+/* ------------------------------------------ */
+
+.h-scroll-bg {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/common/mobile/stars-bg.png');
+}
+
+.h-picture {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------------------ */
+
+.h-circle-link {
+  position: relative;
+  min-width: 88px;
+  min-height: 88px;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: var(--main-color) !important;
+}
+
+.h-circle-link-description {
+  position: absolute;
+  top: 60%;
+  left: 25%;
+  max-width: 10ch;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.h-circle-icon {
+  position: relative;
+  display: block;
+  width: 88px;
+  height: 88px;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  transition: opacity 0.4s;
+}
+
+.h-circle-icon__arrow {
+  position: absolute;
+  top: 50%;
+  left: -60%;
+  width: 80%;
+  height: 2px;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  transition-duration: 0.5s;
+}
+
+.h-circle-icon__arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-color: var(--main-color);
+  border-top: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+}
+
+.h-circle-link:hover .h-circle-icon__arrow {
+  transform: translateX(30%);
+}
+
+.h-circle-link:hover span {
+  color: var(--main-color);
+}
+
+.h-circle-icon_small {
+  margin-left: 29px;
+  width: 35px;
+  height: 35px;
+  border-width: 1px;
+}
+
+.h-circle-icon_small .h-circle-icon__arrow {
+  left: 0;
+  height: 1px;
+  left: -50%;
+  width: 100%;
+}
+
+.h-circle-icon_small .h-circle-icon__arrow::after {
+  width: 8px;
+  height: 8px;
+  border-width: 1px;
+}
+
+.h-circle-link:hover .h-circle-icon_small .h-circle-icon__arrow {
+  transform: translateX(-20%);
+}
+
+.h-circle-icon:hover {
+  opacity: 0.7;
+}
+
+/* ------------------------------------------ */
+
+.h-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.h-background-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-object-position: bottom right;
+  object-position: bottom right;
+}
+
+/* ------------------------------------------ */
+
+.h-logo {
+  font-weight: 300;
+}
+
+/* ------------------------------------------ */
+
+.h-preload {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  background-color: var(--second-color);
+  transition: opacity 0.7s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.h-preload img {
+  width: calc(50vw);
+  transition: transform 0.5s;
+}
+
+.h-preload_hidden {
+  opacity: 0;
+}
+
+.h-preload_hidden > img {
+  transform: translateY(70vh) scale(0);
+}
+
+/* ------------------------------------------ */
+
+@media (min-width: 500px) {
+  .h {
+    --h-indents: 36px;
+    --h-arrow-link-svg-w: 150px;
+    --h-arrow-link-svg-h: 110px;
+  }
+
+  .h-scroll-bg {
+    background-image: url('../images/common/tablet/stars-bg.png');
+  }
+
+  .h-circle-icon {
+    height: 110px;
+    width: 110px;
+  }
+
+  .h-circle-icon_small {
+    width: 35px;
+    height: 35px;
+  }
+
+  .h-circle-link-description {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .h {
+    --h-indents: 80px;
+    --h-arrow-link-svg-w: 241px;
+    --h-arrow-link-svg-h: 160px;
+  }
+
+  .h-scroll-bg {
+    background-image: url('../images/common/desktop/stars-bg.png');
+  }
+
+  .h-circle-icon {
+    height: 176px;
+    width: 176px;
+  }
+
+  .h-circle-link-description {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .h-circle-icon_small {
+    margin-left: 50px;
+    width: 58px;
+    height: 58px;
+    border-width: 2px;
+  }
+
+  .h-circle-icon_small .h-circle-icon__arrow {
+    left: 0;
+    height: 2px;
+    left: -50%;
+    width: 100%;
+  }
+
+  .h-circle-icon_small .h-circle-icon__arrow::after {
+    width: 8px;
+    height: 8px;
+    border-width: 2px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .h-scroll-bg {
+    background-size: contain;
+  }
+}
